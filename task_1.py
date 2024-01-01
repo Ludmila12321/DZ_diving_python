@@ -1,3 +1,10 @@
+#В результате работы программы при вводе в командную строку команды python task_1.py input_data.csv 500,  
+#скрипт генерирует файл "input_data.csv" с 500 строками случайных чисел и записывает результаты в файл "results.json". 
+#Создаётся файл error.log.  
+#В консоль выводится сообщение:  
+#True  
+#True
+
 import csv
 import json
 import random
@@ -34,7 +41,7 @@ def save_to_json(func):
 
     return wrapper
 
-def generate_csv_file(file_name, rows):
+def generate_csv_file(file_name, rows): # количество строк вариативно
     with open(file_name, mode='w', newline='') as file:
         writer = csv.writer(file)
         
