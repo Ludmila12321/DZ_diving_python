@@ -25,7 +25,7 @@ def save_to_json(func):
                         "roots": roots
                     })
                 except Exception as e:
-                    logging.error(f"An error occurred while processing the input data: {e}")
+                    logging.error(f"При обработке входных данных произошла ошибка: {e}")
 
         with open('results.json', 'w') as json_file:
             json.dump(result_data, json_file, indent=4)
@@ -39,7 +39,7 @@ def generate_csv_file(file_name, rows):
         writer = csv.writer(file)
         
         for _ in range(rows):
-            row = [random.randint(100, 999) for _ in range(3)]  # Генерируем три случайных числа
+            row = [random.randint(100, 999) for _ in range(3)]
             writer.writerow(row)
 
 @save_to_json
@@ -57,7 +57,7 @@ def find_roots(a, b, c):
         else:
             return None
     except Exception as e:
-        logging.error(f"An error occurred while finding the roots: {e}")
+        logging.error(f"Произошла ошибка при поиске корней: {e}")
         return None
 
 if len(sys.argv) == 3:
@@ -66,7 +66,7 @@ if len(sys.argv) == 3:
     generate_csv_file(input_file, rows)
     find_roots(input_file)
 else:
-    print("Usage: python script_name.py input_file.csv number_of_rows")
+    print("Используйте: python script_name.py input_file.csv number_of_rows")
 
 with open("results.json", 'r') as f:
     data = json.load(f)
